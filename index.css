@@ -130,7 +130,6 @@ input
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
     border-radius: 10px;
-	behavior: url(css/PIE.htc);
 	color: #ffffff;
 	font-size: 24pt;
 	margin: auto;
@@ -203,7 +202,6 @@ input
 	-moz-border-radius: 0 0 10px 10px;
 	-webkit-border-radius: 0 0 10px 10px;
     border-radius: 0 0 10px 10px;
-	behavior: url(css/PIE.htc);
 	position:absolute;
 	left: 700px;
 	bottom: 120px;
