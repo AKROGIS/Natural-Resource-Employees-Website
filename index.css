@@ -3,9 +3,7 @@ body, html
     width: 100%;
     height: 100%;
     margin: 0;
-    /* font-family: HelveticaNeueUltraLight; */
-    font-family: HelveticaNeue;
-	/* font-family": Arial, Helvetica, sans-serif */
+    font-family: Arial, Helvetica, sans-serif
     padding: 0;
     overflow: hidden;
 	color: #ffffff;
@@ -22,33 +20,6 @@ input
 {
 	background-color: #c3c3c3;
 	border-color: #6e6e6e;
-}
-
-
-/* Fonts */
-
-@font-face {
-    font-family: 'HelveticaNeue';
-    src: url('fonts/helveticaneue.eot');
-    src: url('fonts/helveticaneue.eot?#iefix') format('embedded-opentype'),
-         url('fonts/helveticaneue.woff') format('woff'),
-         url('fonts/helveticaneue.ttf') format('truetype'),
-         url('fonts/helveticaneue.svg#HelveticaNeue') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'HelveticaNeueUltraLight';
-    src: url('fonts/helveticaneueultralight.eot');
-    src: url('fonts/helveticaneueultralight.eot?#iefix') format('embedded-opentype'),
-         url('fonts/helveticaneueultralight.woff') format('woff'),
-         url('fonts/helveticaneueultralight.ttf') format('truetype'),
-         url('fonts/helveticaneueultralight.svg#HelveticaNeueUltraLight') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
 }
 
 /* Bottom */
@@ -220,7 +191,7 @@ input
 	width: 170px;
 	min-height: 210px;
 	display: block;
-	
+
 }
 
 .panelStatus {
@@ -260,7 +231,7 @@ input
     opacity: 0.70;
 }
 
-.selectionItem {	
+.selectionItem {
 	display: block;
 	margin: 0;
 	padding: 4px 10px;
@@ -270,11 +241,11 @@ input
 	text-decoration: none
 }
 
-.selectionItem:hover {	
+.selectionItem:hover {
 	background: #ffc001;
 }
 
-#panelStatus span {	
+#panelStatus span {
 	display: block;
 	margin: 0;
 	padding: 4px 4px;
