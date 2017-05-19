@@ -1,116 +1,116 @@
 ﻿html,body
 {
-	height:100%;
-	width:100%;
-	padding:0;
-	margin:0;
-	overflow:hidden;
+    height:100%;
+    width:100%;
+    padding:0;
+    margin:0;
+    overflow:hidden;
 }
 
 body
 {
-	background-color:#fff;
-	color:#333;
-	font-size:14px;
-	overflow:hidden;
-	font-family:Georgia, "Times New Roman", Times, serif;
+    background-color:#fff;
+    color:#333;
+    font-size:14px;
+    overflow:hidden;
+    font-family:Georgia, "Times New Roman", Times, serif;
 }
 
 a
 {
-	color:#555;
-	font-weight:bold;
-	text-decoration:none;
+    color:#555;
+    font-weight:bold;
+    text-decoration:none;
 }
 
 a:hover
 {
-	text-decoration:underline;
+    text-decoration:underline;
 }
 
 #header
 {
-	height:115px;
-	background:#444;
-	color:#fff;
-	margin:0;
-	overflow:hidden;
+    height:115px;
+    background:#444;
+    color:#fff;
+    margin:0;
+    overflow:hidden;
 }
 
 #headerText
 {
-	padding-top:20px;
-	padding-left:25px;
-	width:70%;
-	float:left;
+    padding-top:20px;
+    padding-left:25px;
+    width:70%;
+    float:left;
 }
 
 #title
 {
-	font-family:Arial, Helvetica, sans-serif;
-	font-size:40px;
-	font-weight:bold;
-	text-align:left;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	-o-text-overflow:ellipsis;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:40px;
+    font-weight:bold;
+    text-align:left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow:ellipsis;
 }
 
 #subtitle
 {
-	font-family:Arial, Helvetica, sans-serif;
-	font-style:italic;
-	font-size:13px;
-	margin-top:10px;
-	overflow: hidden;
+    font-family:Arial, Helvetica, sans-serif;
+    font-style:italic;
+    font-size:13px;
+    margin-top:10px;
+    overflow: hidden;
 }
 
 #logoArea
 {
-	float:right;
-	padding-top:25px;
-	padding-right:25px;
-	text-align:right;
+    float:right;
+    padding-top:25px;
+    padding-right:25px;
+    text-align:right;
 }
 
 #social
 {
-	margin-bottom:20px;
+    margin-bottom:20px;
 }
 
 #msLink
 {
-	color:#fff;
-	font-family:Arial, Helvetica, sans-serif;
-	font-weight:bold;
-	font-size:13px;
-	outline:none;
+    color:#fff;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size:13px;
+    outline:none;
 }
 
 #logo
 {
-	border:none;
-	outline:none;
+    border:none;
+    outline:none;
 }
 
 #logoImg
 {
-	border:none;
-	outline:none;
-	size:50%;
+    border:none;
+    outline:none;
+    size:50%;
 }
 
 #map
 {
-	margin:0;
+    margin:0;
 }
 
 #application
 {
-	border:none;
-	width:100%;
-	z-index:10;
-	overflow:hidden;
-	position:absolute;
+    border:none;
+    width:100%;
+    z-index:10;
+    overflow:hidden;
+    position:absolute;
 }
