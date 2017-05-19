@@ -10,44 +10,21 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="css/index.css" />
 	
-	<!-- ArcGIS JavaScript API 2.8
-	<script type="text/javascript">var djConfig = {parseOnLoad: true};</script>
-	<link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/2.8/js/esri/dijit/css/Popup.css">
-	<link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/2.8/js/dojo/dijit/themes/claro/claro.css">	
-    <script type="text/javascript" src="http://serverapi.arcgisonline.com/jsapi/arcgis/?v=2.8compact"></script>
-	-->
-	
-	<!-- ESRI ArcGIS Javascript API 3.8 -->	
-    <link rel="stylesheet" href="http://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css">
-    <link rel="stylesheet" href="http://js.arcgis.com/3.8/js/esri/css/esri.css">
-    <script src="http://js.arcgis.com/3.8/"></script>
 
     <!-- Supporting Javascript Files -->
-    <script type="text/javascript" src="javascript/config.js"></script>
+	<link rel="stylesheet" href="https://js.arcgis.com/3.20/esri/css/esri.css">
+	<script src="https://js.arcgis.com/3.20/"></script>
 	<script type="text/javascript" src="javascript/staff.js"></script>
 	<script type="text/javascript" src="javascript/person.js"></script>
 	<script type="text/javascript" src="javascript/unit_lookup.js"></script>
 	<script type="text/javascript" src="javascript/unit_location_lookup.js"></script>
 	<script type="text/javascript" src="javascript/constants.js"></script>
 	<script type="text/javascript" src="javascript/app.js"></script>
-	
-    <script type="text/javascript">
-      dojo.require("dijit.layout.BorderContainer");
-      dojo.require("dijit.layout.ContentPane");
-	  dojo.require("dojo.fx");
-	  dojo.require("dojo.fx.easing");
-      dojo.require("esri.map");
-	  dojo.require("esri.arcgis.utils");
-	  dojo.require("esri.dijit.BasemapGallery");
-	  dojo.require("esri.layers.graphics");
-      dojo.require("esri.layers.FeatureLayer");
-	  dojo.require("esri.tasks.locator");
-	  dojo.require("esri.tasks.query");
-	  dojo.require("esri.IdentityManager");
-	  dojo.require("esri.geometry.Point");
-	  //dojo.require("esri/InfoTemplate");  
-    </script>
-	
+
+	<script type="text/javascript">
+        loadMap();
+	</script>
+
 	<style type="text/css">
 		.dijitDialogUnderlay {
 		    background: none repeat scroll 0 0 #000000;

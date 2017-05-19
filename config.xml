@@ -1,6 +1,0 @@
-<config>
-	<webmap>57465a63774048d2987cf47bac323d1a</webmap>
-	<lyr>Locations</lyr>
-	<locatorURL>http://tasks.arcgisonline.com/ArcGIS/rest/services/Locators/ESRI_Places_World/GeocodeServer</locatorURL>
-	<proxyURL>proxy.ashx</proxyURL>
-</config>

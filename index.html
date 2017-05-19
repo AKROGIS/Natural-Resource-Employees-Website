@@ -1,44 +1,35 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-  <head>
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=9">
-    <title>AKR Resource Staff: What We Do</title>    
+    <title>AKR Resource Staff: What We Do</title>
     <link rel="stylesheet" type="text/css" href="css/layout.css">
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript">
-      $(document).ready(function(e) {
-        $("#application").height((($(document).height())-($("#header").height())));
-        //alert("Due to technical issues, we are unable to display \"Resource Staff Functions\" application at the current time.");
-        //window.location = 'http://storymaps.esri.com';
-      });
-      $(window).resize(function(e){
-        $("#application").height((($(document).height())-($("#header").height())));
-      });
+        $(document).ready(function () {
+            $("#application").height((($(document).height())-($("#header").height())));
+        });
+        $(window).resize(function(){
+            $("#application").height((($(document).height())-($("#header").height())));
+        });
     </script>
-	
-
-  </head>    
-  <body>
-    <!-- Header Section-->
-    <div id="header">
-      <div id="headerText">
-<!---
-        <div id="title"><span style="font-size:26px">Resource</span> Staff Functions <span style="font-size:26px"> in the Alaska Region</span></div>
--->
+</head>
+<body>
+<div id="header">
+    <div id="headerText">
         <div id="title">Alaska Region Resources: What We Do</div>
         <div id="subtitle">This map is a snapshot of where resource expertise spent their time in 2013. Shown in FTE.</div>
-      </div>
-      <div id="logoArea">
-        <div id="logo"><a href="http://inpakroms03web/rgr/akgis/index.cfm?action=dsp&topic=home&item=home"><img id="logoImg" src="images/ArrowheadNoBackground.png" alt="NPS Arrowhead" width="60px"></a></div>
-      </div>
     </div>
-
-    <!--APPLICATION-->
-    <iframe id="application" src="app.html"></iframe>
-    
-  </body>
-
+    <div id="logoArea">
+        <div id="logo">
+            <a href="http://inpakroms03web/rgr/akgis/index.cfm?action=dsp&topic=home&item=home">
+                <img id="logoImg" src="images/ArrowheadNoBackground.png" alt="NPS Arrowhead" width="60px">
+            </a>
+        </div>
+    </div>
+</div>
+<iframe id="application" src="app.html"></iframe>
+</body>
 </html>
