@@ -1,6 +1,6 @@
 var lyrLoaded = false;
 var map;
-var lyr;
+//var lyr;
 //var features;
 var currentResource = null;
 var currentField = null;
@@ -13,32 +13,38 @@ var resourceTotalByUnit = null;
 var personnelData = null;
 var locations = {};
 
-dojo.addOnLoad(loadXML);
+dojo.addOnLoad(init);
 
 function init() {
-    esri.config.defaults.io.proxyUrl = config.proxyURL;
+    esri.config.defaults.io.proxyUrl = "proxy.ashx";
     font = new esri.symbol.Font(markerTextSize, esri.symbol.Font.STYLE_NORMAL, esri.symbol.Font.VARIANT_NORMAL, esri.symbol.Font.WEIGHT_NORMAL, "Arial");
-/*
 	require(["esri/map", "dojo/domReady!"], function(Map) {
-        map = new Map("map", {
-            basemap: "gray",
-            center: [-150,65], // long, lat
-            zoom: 5,
-            slider: false,
-            nav: false,
-            logo: false,
+		map = new Map("map", {
+			basemap: "topo",
+			center: [-150,65], // long, lat
+			zoom: 5,
+			slider: false,
+			nav: false,
+			logo: false,
 			wrapAround180: true
-        });
-		var template = new esri.InfoTemplate();
-		template.setTitle(infoTitle);
-		template.setContent(infoContent);
-		map.graphics.setInfoTemplate(template);
-        dojo.connect(dijit.byId('map'), 'resize', map, map.resize);
-        dojo.connect(map, "onUpdateEnd", layersUpdateEnd);
-        dojo.connect(map, "onExtentChange", mapExtentChange);
+		});
+		map.on("load", initMap);
+
+		function initMap() {
+			var template = new esri.InfoTemplate();
+			template.setTitle(infoTitle);
+			template.setContent(infoContent);
+			map.graphics.setInfoTemplate(template);
+			//dojo.connect(dijit.byId('map'), 'resize', map, map.resize);
+			//dojo.connect(map, "onUpdateEnd", layersUpdateEnd);
+			//dojo.connect(map, "onExtentChange", mapExtentChange);
+			getStaffData();
+			drawStaffCircles();
+		};
     });
 }
-*/
+
+/*/
     var info = esri.arcgis.utils.createMap(config.webmap, "map", {
         mapOptions: {
             slider: false,
@@ -81,6 +87,7 @@ function initMap(layers) {
         }
 	});
 }
+*/
 
 function infoTitle(graphic) {
 	return unitShortNameLookup[graphic.attributes.unit];
@@ -206,6 +213,7 @@ function animatePanel(a, b, d, g, e) {
     return c
 }
 
+/*
 function layersUpdateEnd() {
     if (lyrLoaded == false) {
         //features = lyr.graphics.slice();
@@ -214,7 +222,7 @@ function layersUpdateEnd() {
         map.setLevel(5);
     }
 }
-
+*/
 function lyrClick(a) {
     //var b = a.graphic;
     //var d = "http://london2012.com" + b.attributes.LINK;

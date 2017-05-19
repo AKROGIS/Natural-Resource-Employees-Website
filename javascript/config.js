@@ -21,7 +21,7 @@ function loadXML() {
         var j = findChildNode("proxyURL", b);
         config.proxyURL = getDomNodeText(j);
         init();
-        getMedalsData()
+        getStaffData()
     }, function (a) {
         console.warn(a)
     })

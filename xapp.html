@@ -1,0 +1,307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Medals Map</title>
+	
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="index.css" />
+	<link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/2.8/js/esri/dijit/css/Popup.css">
+	<link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/2.8/js/dojo/dijit/themes/claro/claro.css">
+	
+	<!-- Dojo Config -->
+	<script type="text/javascript">var djConfig = {parseOnLoad: true};</script>
+	
+	<!--Adobe Edge Runtime-->
+    <!--<script type="text/javascript" charset="utf-8" src="scream_edgePreload.js"></script>
+	<script type="text/javascript" charset="utf-8" src="blah_edgePreload.js"></script>
+	<script type="text/javascript" charset="utf-8" src="music_edgePreload.js"></script>-->
+	<!--Adobe Edge Runtime End-->
+
+	<!-- ArcGIS JavaScript API -->
+    <script type="text/javascript" src="http://serverapi.arcgisonline.com/jsapi/arcgis/?v=2.8compact"></script>
+	
+    <!-- Supporting Javascript Files -->
+    <script type="text/javascript" src="javascript/config.js"></script>
+	<script type="text/javascript" src="javascript/staff.js"></script>
+	<script type="text/javascript" src="javascript/person.js"></script>
+	<script type="text/javascript" src="javascript/constants.js"></script>
+	<script type="text/javascript" src="javascript/app.js"></script>
+	
+    <script type="text/javascript">
+    	
+      dojo.require("dijit.layout.BorderContainer");
+      dojo.require("dijit.layout.ContentPane");
+	  dojo.require("dojo.fx");
+      dojo.require("esri.map");
+	  dojo.require("esri.arcgis.utils");
+	  dojo.require("esri.dijit.BasemapGallery");
+	  dojo.require("esri.layers.graphics");
+      dojo.require("esri.layers.FeatureLayer");
+	  dojo.require("esri.tasks.locator");
+	  dojo.require("esri.tasks.query");
+	  dojo.require("esri.IdentityManager");
+	  
+    </script>
+	
+	<style type="text/css">
+		.dijitDialogUnderlay {
+		    background: none repeat scroll 0 0 #000000;
+		    opacity: 0.5;
+		}
+		
+	</style>
+	
+  </head>
+  <body>
+  	
+		<!-- Panel Center -->
+		<div id="panelCenter" dojotype="dijit.layout.BorderContainer" style="width: 100%; position: absolute; top: 0px; bottom: 0px">
+			<div id="map" dojotype="dijit.layout.ContentPane" region="center" style="width: 100%; height: 100%"></div>
+		</div>
+		
+		<!-- Map Status -->
+		<div id="mapStatus" class="mapStatus">
+			<div class="panelMapStatus">Zoom In to view NPS Units in the Alaska Region</div>
+		</div>
+		
+		<div id="selectionLabel" class="selectionLabel" style="position:absolute; left: 9px; top: 8px; absolute;z-index: 900"></div>
+		
+		<!-- Bottom Background -->
+		<div id="panelBottomBG" class="panelBottomBG" style="z-index: 900">
+		</div>
+		
+		<!-- Panel Bottom -->
+		<div id="panelBottom" class="panelBottom" style="z-index: 900">
+			
+			<!-- Nav Panel -->
+			<div id='panelNav' class="panelNav">
+				<img src="images/zoomin.png" alt="Zoom In" onmousedown="doMapZoom(1)" style="position: absolute; left: 9px; top: 38px; cursor: pointer" />
+				<img src="images/zoomout.png" alt="Zoom Out" onmousedown="doMapZoom(-1)" style="position: absolute; left: 9px; bottom: 38px; cursor: pointer" />
+			</div>
+			
+			<!-- Panel 0 
+			<div id="panelLogo" class="panelTab" style="background-color: #444444; width:150px">
+				<img src="images/panel0.png" alt="AKR Resource Staff Functions"/>
+			</div>
+			-->
+			 
+			<!-- Panel 1 -->
+			<div id="panel1" class="panelTab" style="background-color: #333333; width:310px">
+				<div class="panelTitle" onmousedown="togglePanel('panel1')">
+					<img src="images/panel1.png" alt="" style="margin: 0" />
+				</div>
+				<div class="panelBreak">
+					<img src="images/break.png" alt="" style="margin: 50px auto auto 0px;" />
+				</div>
+				<div class="panelContent">
+					<div class="innerContent" style="text-align:left">
+						<span id="txt1" class="txtRecs">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Panel A -->
+			<div id="panelA" class="panelTab" style="background-color: #C55A11">
+				<div class="panelTitle" onmousedown="togglePanel('panelA')">
+					<img src="images/panelA.png" alt="" style="margin: 0" />
+				</div>
+				<div class="panelBreak">
+					<img src="images/break.png" alt="" style="margin: 50px auto auto 0px;" />
+				</div>
+				<div class="panelContent">
+					<div class="innerContent" style="text-align:left">
+						<span id="txtA" class="txtRecs">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Panel B -->
+			<div id="panelB" class="panelTab" style="background-color: #FFCC33">
+				<div class="panelTitle" onmousedown="togglePanel('panelB')">
+					<img src="images/panelB.png" alt="" style="margin: 0" />
+				</div>
+				<div class="panelBreak">
+					<img src="images/break.png" alt="" style="margin: 50px auto auto 0px;" />
+				</div>
+				<div class="panelContent">
+					<div class="innerContent" style="text-align:left">
+						<span id="txtB" class="txtRecs">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Panel C -->
+			<div id="panelC" class="panelTab" style="background-color: #BF9000">
+				<div class="panelTitle" onmousedown="togglePanel('panelC')">
+					<img src="images/panelC.png" alt="" style="margin: 0" />
+				</div>
+				<div class="panelBreak">
+					<img src="images/break.png" alt="" style="margin: 50px auto auto 0px;" />
+				</div>
+				<div class="panelContent">
+					<div class="innerContent" style="text-align:left">
+						<span id="txtC" class="txtRecs">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Panel D -->
+			<div id="panelD" class="panelTab" style="background-color: #7F6000">
+				<div class="panelTitle" onmousedown="togglePanel('panelD')">
+					<img src="images/panelD.png" alt="" style="margin: 0" />
+				</div>
+				<div class="panelBreak">
+					<img src="images/break.png" alt="" style="margin: 50px auto auto 0px;" />
+				</div>
+				<div class="panelContent">
+					<div class="innerContent" style="text-align:left">
+						<span id="txtD" class="txtRecs">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Panel E -->
+			<div id="panelE" class="panelTab" style="background-color: #9CB084">
+				<div class="panelTitle" onmousedown="togglePanel('panelE')">
+					<img src="images/panelE.png" alt="" style="margin: 0" />
+				</div>
+				<div class="panelBreak">
+					<img src="images/break.png" alt="" style="margin: 50px auto auto 0px;" />
+				</div>
+				<div class="panelContent">
+					<div class="innerContent" style="text-align:left">
+						<span id="txtE" class="txtRecs">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Panel F -->
+			<div id="panelF" class="panelTab" style="background-color: #1B9D31">
+				<div class="panelTitle" onmousedown="togglePanel('panelF')">
+					<img src="images/panelF.png" alt="" style="margin: 0" />
+				</div>
+				<div class="panelBreak">
+					<img src="images/break.png" alt="" style="margin: 50px auto auto 0px;" />
+				</div>
+				<div class="panelContent">
+					<div class="innerContent" style="text-align:left">
+						<span id="txtF" class="txtRecs">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Panel G -->
+			<div id="panelG" class="panelTab" style="background-color: #6BB1C9">
+				<div class="panelTitle" onmousedown="togglePanel('panelG')">
+					<img src="images/panelG.png" alt="" style="margin: 0" />
+				</div>
+				<div class="panelBreak">
+					<img src="images/break.png" alt="" style="margin: 50px auto auto 0px;" />
+				</div>
+				<div class="panelContent">
+					<div class="innerContent" style="text-align:left">
+						<span id="txtG" class="txtRecs">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Panel H -->
+			<div id="panelH" class="panelTab" style="background-color: #0070C0">
+				<div class="panelTitle" onmousedown="togglePanel('panelH')">
+					<img src="images/panelH.png" alt="" style="margin: 0" />
+				</div>
+				<div class="panelBreak">
+					<img src="images/break.png" alt="" style="margin: 50px auto auto 0px;" />
+				</div>
+				<div class="panelContent">
+					<div class="innerContent" style="text-align:left">
+						<span id="txtH" class="txtRecs">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Panel I -->
+			<div id="panelI" class="panelTab" style="background-color: #533EA9">
+				<div class="panelTitle" onmousedown="togglePanel('panelI')">
+					<img src="images/panelI.png" alt="" style="margin: 0" />
+				</div>
+				<div class="panelBreak">
+					<img src="images/break.png" alt="" style="margin: 50px auto auto 0px;" />
+				</div>
+				<div class="panelContent">
+					<div class="innerContent" style="text-align:left">
+						<span id="txtI" class="txtRecs">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Panel J -->
+			<div id="panelJ" class="panelTab" style="background-color: #9A4E90">
+				<div class="panelTitle" onmousedown="togglePanel('panelJ')">
+					<img src="images/panelJ.png" alt="" style="margin: 0" />
+				</div>
+				<div class="panelBreak">
+					<img src="images/break.png" alt="" style="margin: 50px auto auto 0px;" />
+				</div>
+				<div class="panelContent">
+					<div class="innerContent" style="text-align:left">
+						<span id="txtJ" class="txtRecs">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Panel K -->
+			<div id="panelK" class="panelTab" style="background-color: #990033">
+				<div class="panelTitle" onmousedown="togglePanel('panelK')">
+					<img src="images/panelK.png" alt="" style="margin: 0" />
+				</div>
+				<div class="panelBreak">
+					<img src="images/break.png" alt="" style="margin: 50px auto auto 0px;" />
+				</div>
+				<div class="panelContent">
+					<div class="innerContent" style="text-align:left">
+						<span id="txtK" class="txtRecs">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Panel L -->
+			<div id="panelL" class="panelTab" style="background-color: #B0A9AC">
+				<div class="panelTitle" onmousedown="togglePanel('panelL')">
+					<img src="images/panelL.png" alt="" style="margin: 0" />
+				</div>
+				<div class="panelBreak">
+					<img src="images/break.png" alt="" style="margin: 50px auto auto 0px;" />
+				</div>
+				<div class="panelContent">
+					<div class="innerContent" style="text-align:left">
+						<span id="txtL" class="txtRecs">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Panel M -->
+			<div id="panelM" class="panelTab" style="background-color: #666666">
+				<div class="panelTitle" onmousedown="togglePanel('panelM')">
+					<img src="images/panelM.png" alt="" style="margin: 0" />
+				</div>
+				<div class="panelBreak">
+					<img src="images/break.png" alt="" style="margin: 50px auto auto 0px;" />
+				</div>
+				<div class="panelContent">
+					<div class="innerContent" style="text-align:left">
+						<span id="txtM" class="txtRecs">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Panel Bar 
+			<div id="panelBar" class="panelBar"></div>
+			-->
+		</div>
+		
+		
+  </body>
+  
+</html>

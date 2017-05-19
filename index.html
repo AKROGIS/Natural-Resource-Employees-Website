@@ -4,58 +4,40 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=9">
-    <title>A Story Map Presented by Esri</title>    
+    <title>AKR Resource Staff: What We Do</title>    
     <link rel="stylesheet" type="text/css" href="css/layout.css">
 
-	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript">
-		$(document).ready(function(e) {
-            $("#application").height((($(document).height())-($("#header").height())));
-			
-//			alert("Due to technical issues, we are unable to display \"Mapping the Medals\" application at the current time. Check out more of our stories at http://storymaps.esri.com");
-			
-//			window.location = 'http://storymaps.esri.com';
-        });
+      $(document).ready(function(e) {
+        $("#application").height((($(document).height())-($("#header").height())));
+        //alert("Due to technical issues, we are unable to display \"Resource Staff Functions\" application at the current time.");
+        //window.location = 'http://storymaps.esri.com';
+      });
+      $(window).resize(function(e){
+        $("#application").height((($(document).height())-($("#header").height())));
+      });
+    </script>
+	
 
-	$(window).resize(function(e){
-$("#application").height((($(document).height())-($("#header").height())));
-});
-
-	</script>
-
-	<!--Social Media Links-->
-    <script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'77225c91-2742-42f7-b1b4-bddda99a9bde'});</script>
-    <!--END Social Media Links-->
-    <!--Google Analytics Start-->
-	<script type="text/javascript">
-  	  var _gaq = _gaq || [];
-  	  _gaq.push(['_setAccount', 'UA-26529417-1']);
-  	  _gaq.push(['_trackPageview']);
-
-  	  (function() {
-   	     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    	   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    	   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  	  })();
-	</script>
-	<!--Google Analytics End-->
-  </head>	
+  </head>    
   <body>
     <!-- Header Section-->
     <div id="header">
       <div id="headerText">
-        <div id="title">Mapping the Medals</div>
-        <div id="subtitle">Keep up-to-date on Olympic medal distribution across the globe.  This map uses a feed from <a href="http://heroku.com" style="color: #FFFFFF;font-size: 14px" target="_blank">heroku.com</a> for medal statistics.</div>
+<!---
+        <div id="title"><span style="font-size:26px">Resource</span> Staff Functions <span style="font-size:26px"> in the Alaska Region</span></div>
+-->
+		<div id="title"><span style="font-size:26px">Alaska Region Resources: What We Do</span></div>
+        <div id="subtitle">This map is a snapshot of where resource expertise spent their time in 2013. Shown in FTE.</div>
       </div>
       <div id="logoArea">
-        <div id="social"><a id="msLink" href="http://mapstories.esri.com" target="_blank">A story map </a><span  class='st_facebook' ></span><span  class='st_twitter' ></span>
-        </div>
-        <div id="logo"><a id="logoLink" href="http://www.esri.com" target="_blank"><img id="logoImg" src="images/esriGlobeLogow.png" alt="Esri - Home"></a></div>
+        <div id="logo"><a href="http://inpakroms03web/rgr/akgis/index.cfm?action=dsp&topic=home&item=home"><img id="logoImg" src="images/ArrowheadNoBackground.png" alt="NPS Arrowhead" width="60px"></a></div>
       </div>
     </div>
-    
+
     <!--APPLICATION-->
- 	<iframe id="application" src="olympics.html"></iframe>
+    <iframe id="application" src="app.html"></iframe>
     
   </body>
 

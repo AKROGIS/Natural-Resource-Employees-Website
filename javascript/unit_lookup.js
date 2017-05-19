@@ -1,0 +1,21 @@
+var unitShortNameLookup = {
+    "akro":"Alaska Regional Office",
+	"alag":"Alagnak",
+	"ania":"Aniakchak",
+	"bela":"Bering Land Bridge",
+	"cakr":"Cape Krusenstern",
+	"dena":"Denali",
+	"gaar":"Gates of the Arctic",
+	"glba":"Glacier Bay",
+	"katm":"Katmai",
+	"kefj":"Kenai Fjords",
+	"klgo":"Klondike Gold Rush",
+	"kova":"Kobuk Valley",
+	"lacl":"Lake Clark",
+	"noat":"Noatak",
+	"sitk":"Sitka",
+	"wear":"Western Arctic",
+	"wrst":"Wrangell-St. Elias",
+	"yuch":"Yukon-Charley Rivers",
+	"yuga":"Yukon-Charley and Gates"
+};
