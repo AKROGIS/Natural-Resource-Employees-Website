@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Medals Map</title>
+	
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="index.css" />
+	<link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/2.8/js/esri/dijit/css/Popup.css">
+	<link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/2.8/js/dojo/dijit/themes/claro/claro.css">
+	
+	<!-- Dojo Config -->
+	<script type="text/javascript">var djConfig = {parseOnLoad: true};</script>
+	
+	<!--Adobe Edge Runtime-->
+    <!--<script type="text/javascript" charset="utf-8" src="scream_edgePreload.js"></script>
+	<script type="text/javascript" charset="utf-8" src="blah_edgePreload.js"></script>
+	<script type="text/javascript" charset="utf-8" src="music_edgePreload.js"></script>-->
+	<!--Adobe Edge Runtime End-->
+
+	<!-- ArcGIS JavaScript API -->
+    <script type="text/javascript" src="http://serverapi.arcgisonline.com/jsapi/arcgis/?v=2.8compact"></script>
+	
+    <!-- Supporting Javascript Files -->
+    <script type="text/javascript" src="javascript/config.js"></script>
+	<script type="text/javascript" src="javascript/medals.js"></script>
+	<script type="text/javascript" src="javascript/app.js"></script>
+	
+    <script type="text/javascript">
+    	
+      dojo.require("dijit.layout.BorderContainer");
+      dojo.require("dijit.layout.ContentPane");
+	  dojo.require("dojo.fx");
+      dojo.require("esri.map");
+	  dojo.require("esri.arcgis.utils");
+	  dojo.require("esri.dijit.BasemapGallery");
+	  dojo.require("esri.layers.graphics");
+      dojo.require("esri.layers.FeatureLayer");
+	  dojo.require("esri.tasks.locator");
+	  dojo.require("esri.tasks.query");
+	  dojo.require("esri.IdentityManager");
+	  
+    </script>
+	
+	<style type="text/css">
+		.dijitDialogUnderlay {
+		    background: none repeat scroll 0 0 #000000;
+		    opacity: 0.5;
+		}
+		
+	</style>
+	
+  </head>
+  <body>
+  	
+		<!-- Panel Center -->
+		<div id="panelCenter" dojotype="dijit.layout.BorderContainer" style="width: 100%; position: absolute; top: 0px; bottom: 0px">
+			<div id="map" dojotype="dijit.layout.ContentPane" region="center" style="width: 100%; height: 100%"></div>
+		</div>
+		
+		<!-- Map Status -->
+		<div id="mapStatus" class="mapStatus">
+			<div class="panelMapStatus">Zoom In to view restaurants</div>
+		</div>
+		
+		<!-- Bottom Background -->
+		<div id="panelBottomBG" class="panelBottomBG" style="z-index: 900">
+		</div>
+		
+		<!-- Panel Bottom -->
+		<div id="panelBottom" class="panelBottom" style="z-index: 900">
+			
+			<!-- Nav Panel -->
+			<div id='panelNav' class="panelNav">
+				<img src="images/zoomin.png" alt="Zoom In" onmousedown="doMapZoom(1)" style="position: absolute; left: 9px; top: 38px; cursor: pointer" />
+				<img src="images/zoomout.png" alt="Zoom Out" onmousedown="doMapZoom(-1)" style="position: absolute; left: 9px; bottom: 38px; cursor: pointer" />
+			</div>
+			
+			<!-- Logo Panel -->
+			<div id="panelLogo" class="panelTab" style="background-color: #e02d7f; width:150px">
+				<img src="images/logo2012.png" alt="London 2012"/>
+			</div>
+			 
+			<!-- Panel A -->
+			<div id="panelA" class="panelTab" style="background-color: #886197; width:300px">
+				<div class="panelTitle" onmousedown="togglePanel('panelA')">
+					<img src="images/medals.png" alt="" style="margin: 0" />
+				</div>
+				<div class="panelBreak">
+					<img src="images/break.png" alt="" style="margin: 50px auto auto 0px;" />
+				</div>
+				<div class="panelContent">
+					<div class="innerContent" style="text-align:center">
+						<span id="txtA" class="txtRecs">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Panel B -->
+			<div id="panelB" class="panelTab" style="background-color: #f2c202">
+				<div class="panelTitle" onmousedown="togglePanel('panelB')">
+					<img src="images/gold.png" alt="" style="margin: 0" />
+				</div>
+				<div class="panelBreak">
+					<img src="images/break.png" alt="" style="margin: 50px auto auto 0px;" />
+				</div>
+				<div class="panelContent">
+					<div class="innerContent" style="text-align:center">
+						<span id="txtB" class="txtRecs">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Panel C -->
+			<div id="panelC" class="panelTab" style="background-color: #696969">
+				<div class="panelTitle" onmousedown="togglePanel('panelC')">
+					<img src="images/silver.png" alt="" style="margin: 0" />
+				</div>
+				<div class="panelBreak">
+					<img src="images/break.png" alt="" style="margin: 50px auto auto 0px;" />
+				</div>
+				<div class="panelContent">
+					<div class="innerContent" style="text-align:center">
+						<span id="txtC" class="txtRecs">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Panel D -->
+			<div id="panelD" class="panelTab" style="background-color: #bb7028">
+				<div class="panelTitle" onmousedown="togglePanel('panelD')">
+					<img src="images/bronze.png" alt="" style="margin: 0" />
+				</div>
+				<div class="panelBreak">
+					<img src="images/break.png" alt="" style="margin: 50px auto auto 0px;" />
+				</div>
+				<div class="panelContent">
+					<div class="innerContent" style="text-align:center">
+						<span id="txtD" class="txtRecs">&nbsp;</span>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Panel Bar -->
+			<div id="panelBar" class="panelBar">
+			</div>
+		
+		</div>
+		
+		
+  </body>
+  
+</html>
