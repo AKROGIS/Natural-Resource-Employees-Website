@@ -18,10 +18,10 @@ function setupConfig() {
 
 function loadNreData() {
     require(['dojo/json',
-            'dojo/text!data/people.json',
-            'dojo/text!data/staff.json',
-            'dojo/text!data/unit_names.json',
-            'dojo/text!data/unit_locations.json'],
+            'dojo/text!./data/people.json',
+            'dojo/text!./data/staff.json',
+            'dojo/text!./data/unit_names.json',
+            'dojo/text!./data/unit_locations.json'],
         function (JSON, personData, staffData, unitNameData, unitLocationData) {
             var staff = JSON.parse(staffData);
             getStaffData(staff);
