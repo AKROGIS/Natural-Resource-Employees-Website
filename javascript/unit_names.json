@@ -1,4 +1,4 @@
-var unitShortNameLookup = {
+{
     "akro":"Alaska Regional Office",
 	"alag":"Alagnak",
 	"ania":"Aniakchak",
@@ -18,4 +18,4 @@ var unitShortNameLookup = {
 	"wrst":"Wrangell-St. Elias",
 	"yuch":"Yukon-Charley Rivers",
 	"yuga":"Yukon-Charley and Gates"
-};
+}

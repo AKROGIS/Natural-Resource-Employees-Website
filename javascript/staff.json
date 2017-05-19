@@ -1,4 +1,4 @@
-var staffJSON = [
+[
   {
     "Resource":"Furlough",
     "FTE":1.55,
