@@ -16,6 +16,11 @@ body, html
 	padding:0;
 }
 
+#header #title
+{
+    font-size:26px
+}
+
 input
 {
 	background-color: #c3c3c3;
