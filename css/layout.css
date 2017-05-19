@@ -98,7 +98,8 @@ a:hover
 {
     border:none;
     outline:none;
-    size:50%;
+    width: 50%;
+    height: auto;
 }
 
 #map

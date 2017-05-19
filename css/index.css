@@ -3,7 +3,7 @@ body, html
     width: 100%;
     height: 100%;
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif
+    font-family: Arial, Helvetica, sans-serif;
     padding: 0;
     overflow: hidden;
     color: #ffffff;
@@ -30,9 +30,6 @@ input
 .selectionLabel
 {
     background-color: #cccccc;
-    filter: alpha(opacity=70);
-    -moz-opacity: 0.70;
-    -khtml-opacity: 0.70;
     opacity: 0.70;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -42,21 +39,18 @@ input
     position:absolute;
     left: 9px;
     top: 8px;
-    absolute;z-index: 900
+    z-index: 900;
 }
 
 .panelBottomBG
 {
     background-color: #000000;
-    filter: alpha(opacity=70);
-    -moz-opacity: 0.70;
-    -khtml-opacity: 0.70;
     opacity: 0.70;
     color: #ffffff;
     position:absolute;
     width: 100%;
     height: 210px;
-    bottom:0px;
+    bottom:0;
 }
 
 .panelBottom
@@ -64,21 +58,18 @@ input
     position:absolute;
     width: 100%;
     height: 210px;
-    bottom:0px;
+    bottom:0;
     display:inline;
 }
 
 .panelBar
 {
     background-color: #000000;
-    filter: alpha(opacity=40);
-    -moz-opacity: 0.40;
-    -khtml-opacity: 0.40;
     opacity: 0.40;
     position:absolute;
     width: 100%;
     height: 20px;
-    bottom:0px;
+    bottom:0;
 }
 
 .panelNav
@@ -138,9 +129,6 @@ input
 .panelMapStatus
 {
     background-color: #000000;
-    filter: alpha(opacity=60);
-    -moz-opacity: 0.60;
-    -khtml-opacity: 0.60;
     opacity: 0.60;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -163,7 +151,6 @@ input
 
 .txtTitle
 {
-    font-family: HelveticaNeueUltraLight;
     font-size: 14pt;
     color: #ffffff;
     text-align: left;
@@ -172,7 +159,6 @@ input
 
 .txtSearch
 {
-    font-family: HelveticaNeueUltraLight;
     font-size: 10pt;
     color: #c3c3c3;
     width: 150px;
@@ -180,7 +166,6 @@ input
 
 .txtResults
 {
-    font-family: HelveticaNeueUltraLight;
     font-size: 8pt;
     color: #c3c3c3;
     width: 150px;
@@ -188,7 +173,6 @@ input
 
 .txtRecs
 {
-    font-family: HelveticaNeue;
     font-size: 10pt;
     color: Black;
     width: 100%;
@@ -197,7 +181,6 @@ input
 
 .txtNum
 {
-    font-family: HelveticaNeue;
     font-size: 10pt;
     color: Black;
     width: 100%;
@@ -217,9 +200,6 @@ input
 .panelStatus
 {
     background-color: #000000;
-    filter: alpha(opacity=70);
-    -moz-opacity: 0.70;
-    -khtml-opacity: 0.70;
     opacity: 0.70;
     -moz-border-radius: 0 0 10px 10px;
     -webkit-border-radius: 0 0 10px 10px;
@@ -227,7 +207,6 @@ input
     position:absolute;
     left: 700px;
     bottom: 120px;
-    font-family: HelveticaNeue;
     font-size: 9pt;
     color: #ffffff;
     width: 260px;
@@ -236,19 +215,15 @@ input
 
 .panelList
 {
-    font-family: HelveticaNeue;
     font-size: 9pt;
     padding: 10px 0 10px 0;
     color: #ffffff;
     position: absolute;
     left: 30px;
-    top: 0px;
+    top: 0;
     width: 140px;
     min-height: 210px;
     background-color: #000000;
-    filter: alpha(opacity=70);
-    -moz-opacity: 0.70;
-    -khtml-opacity: 0.70;
     opacity: 0.70;
 }
 
