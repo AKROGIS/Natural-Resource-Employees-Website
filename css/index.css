@@ -269,3 +269,9 @@ a:visited
     text-align: right;
     width: 40px;
 }
+
+.dijitDialogUnderlay
+{
+    background: none repeat scroll 0 0 #000000;
+    opacity: 0.5;
+}
