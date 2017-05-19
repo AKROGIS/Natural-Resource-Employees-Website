@@ -52,8 +52,7 @@ function loadMap() {
                 nav: false,
                 logo: false,
                 wrapAround180: true
-            },
-            ignorePopups: true
+            }
         }).then(function (response) {
             //update the app
             map = response.map;
@@ -168,12 +167,12 @@ function mergeFteByPerson(unitStaff) {
 
 function togglePanel(panel) {
     if (panel != currentPanel) {
-        require(["dojo/_base/fx"], function (fx) {
+        require(["dojo/fx", "dojo/_base/fx"], function (coreFx, baseFx) {
             var oldPanel = document.getElementById(currentPanel);
             var newPanel = document.getElementById(panel);
-            var closeAction = animatePanel(oldPanel, config, fx, false);
-            var openAction = animatePanel(newPanel, config, fx, true);
-            fx.combine([closeAction, openAction]).play();
+            var closeAction = animatePanel(oldPanel, config, baseFx, false);
+            var openAction = animatePanel(newPanel, config, baseFx, true);
+            coreFx.combine([closeAction, openAction]).play();
             currentPanel = panel;
         });
     }
