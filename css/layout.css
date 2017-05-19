@@ -30,7 +30,7 @@ a:hover
 
 #header
 {
-    height:115px;
+    height:100px;
     background:#444;
     color:#fff;
     margin:0;
@@ -45,10 +45,10 @@ a:hover
     float:left;
 }
 
-#title
+#headerTitle
 {
     font-family:Arial, Helvetica, sans-serif;
-    font-size:40px;
+    font-size:24px;
     font-weight:bold;
     text-align:left;
     white-space: nowrap;
@@ -57,48 +57,34 @@ a:hover
     -o-text-overflow:ellipsis;
 }
 
-#subtitle
+#headerSubtitle
 {
     font-family:Arial, Helvetica, sans-serif;
     font-style:italic;
-    font-size:13px;
+    font-size:14px;
     margin-top:10px;
     overflow: hidden;
 }
 
-#logoArea
+#headerLogoArea
 {
     float:right;
-    padding-top:25px;
-    padding-right:25px;
+    padding-top:20px;
+    padding-right:20px;
     text-align:right;
 }
 
-#social
-{
-    margin-bottom:20px;
-}
-
-#msLink
-{
-    color:#fff;
-    font-family:Arial, Helvetica, sans-serif;
-    font-weight:bold;
-    font-size:13px;
-    outline:none;
-}
-
-#logo
+#headerLogo
 {
     border:none;
     outline:none;
 }
 
-#logoImg
+#headerLogoImg
 {
     border:none;
     outline:none;
-    width: 50%;
+    width: 70%;
     height: auto;
 }
 

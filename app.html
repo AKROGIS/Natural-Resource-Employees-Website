@@ -7,10 +7,10 @@
 
     <title>Resource Map</title>
 
-    <link rel="stylesheet" href="https://js.arcgis.com/3.20/esri/css/esri.css">
+    <link rel="stylesheet" href="//js.arcgis.com/3.20/esri/css/esri.css">
     <link rel="stylesheet" type="text/css" href="css/index.css" />
 
-    <script src="https://js.arcgis.com/3.20/"></script>
+    <script src="//js.arcgis.com/3.20compact/"></script>
 
     <!-- Supporting Javascript Files -->
     <script type="text/javascript" src="javascript/config.js"></script>
@@ -26,28 +26,19 @@
 <body>
 
 
-<!--
-dojo.require("dijit.layout.BorderContainer");
-dojo.require("dijit.layout.ContentPane");
--->
 <!-- Panel Center -->
-<div id="panelCenter" dojotype="dijit.layout.BorderContainer" style="width: 100%; position: absolute; top: 0; bottom: 0">
-    <div id="map" dojotype="dijit.layout.ContentPane" region="center" style="width: 100%; height: 100%"></div>
+<div id="panelCenter">
+    <div id="selectionLabel"></div>
+    <div id="map"></div>
 </div>
 
-<!-- Map Status -->
-<div id="mapStatus" class="mapStatus">
-    <div class="panelMapStatus">Zoom In to view NPS Units in the Alaska Region</div>
-</div>
-
-<div id="selectionLabel" class="selectionLabel" style="position:absolute; left: 9px; top: 8px; z-index: 900"></div>
 
 <!-- Bottom Background -->
-<div id="panelBottomBG" class="panelBottomBG" style="z-index: 900">
+<div id="panelBottomBG">
 </div>
 
 <!-- Panel Bottom -->
-<div id="panelBottom" class="panelBottom" style="z-index: 900">
+<div id="panelBottom">
 
     <!-- Nav Panel -->
     <div id='panelNav' class="panelNav">

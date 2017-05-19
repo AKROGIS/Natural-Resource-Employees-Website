@@ -54,7 +54,6 @@ function loadMap() {
                 wrapAround180: true
             }
         }).then(function (response) {
-            //update the app
             map = response.map;
             on(document.getElementById('map'), 'resize', map.resize);
             if (map.loaded) {
