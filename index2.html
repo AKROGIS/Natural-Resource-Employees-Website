@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <title>AKR Resource Staff: What We Do</title>
+
+    <link rel="stylesheet" href="//js.arcgis.com/3.20/esri/css/esri.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js" defer></script>
+    <script type="text/javascript" src="//js.arcgis.com/3.20compact/" defer></script>
+    <script type="text/javascript" src="javascript/config.js" defer></script>
+    <script type="text/javascript" src="javascript/app.js" defer></script>
+    <script type="text/javascript" defer>
+      setupConfig();
+      loadNreData();
+      //buildContent();
+      loadMap();
+    </script>
+</head>
+<body>
+<header role="banner">
+    <h1 id="headerTitle">
+        Alaska Region Resources: What We Do
+    </h1>
+    <h2 id="headerSubtitle">
+        This is a snapshot of where resource expertise spent their time in 2013. Shown in FTE.
+    </h2>
+    <div id="headerLogo">
+        <a href="http://inpakrovmweb/rgr/akgis/">
+            <img id="headerLogoImg" src="images/ArrowheadNoBackground.png" alt="NPS Arrowhead Logo">
+        </a>
+    </div>
+</header>
+<nav role="navigation">
+    <ul id="navigationList">
+        <li id="mapNav">
+            <button type="button" aria-label="Zoom In" aria-pressed="false" onclick="doMapZoom(1)">
+                <img src="images/zoomin.png" alt="Zoom In">
+            </button>
+            <button type="button" aria-label="Zoom Out" aria-pressed="false" onclick="doMapZoom(-1)">
+                <img src="images/zoomout.png" alt="Zoom Out">
+            </button>
+        </li>
+    </ul>
+</nav>
+<main role="main">
+    <section role="region" id="mainSection">
+    </section>
+    <aside id="map" role="complementary">
+    </aside>
+</main>
+</body>
+</html>

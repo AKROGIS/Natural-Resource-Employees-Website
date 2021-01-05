@@ -37,6 +37,12 @@ function loadNreData() {
         });
 }
 
+function buildContent() {
+  require(["dojo/domReady!"], function() {
+
+  });
+}
+
 function loadMap() {
     require([
         "esri/map",
